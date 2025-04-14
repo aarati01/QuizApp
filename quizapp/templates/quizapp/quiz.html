@@ -29,5 +29,69 @@
   <br />
   {% endfor %}
 
-  <button type="submit">Submit Quiz</button>
+  <button type="submit" class="submit-btn">Submit Quiz</button>
 </form>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #2c3e50;
+    margin-top: 20px;
+  }
+
+  form {
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .question {
+    margin-bottom: 20px;
+  }
+
+  .options label {
+    display: block;
+    margin-left: 20px;
+    font-size: 1em;
+    color: #34495e;
+    padding: 6px 0;
+  }
+
+  .options input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  button.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button.submit-btn:hover {
+    background-color: #2980b9;
+  }
+
+  .question p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+</style>
