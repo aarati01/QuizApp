@@ -1,0 +1,33 @@
+<h2>Quiz Time!</h2>
+<form method="post">
+  {% csrf_token %} {% for q in questions %}
+  <div class="question">
+    <p><strong>{{ forloop.counter }}. {{ q.text }}</strong></p>
+
+    <div class="options">
+      <label>
+        <input type="radio" name="q{{ forloop.counter0 }}" value="1" />
+        {{ q.option1 }} </label
+      ><br />
+
+      <label>
+        <input type="radio" name="q{{ forloop.counter0 }}" value="2" />
+        {{ q.option2 }} </label
+      ><br />
+
+      <label>
+        <input type="radio" name="q{{ forloop.counter0 }}" value="3" />
+        {{ q.option3 }} </label
+      ><br />
+
+      <label>
+        <input type="radio" name="q{{ forloop.counter0 }}" value="4" />
+        {{ q.option4 }} </label
+      ><br />
+    </div>
+  </div>
+  <br />
+  {% endfor %}
+
+  <button type="submit">Submit Quiz</button>
+</form>

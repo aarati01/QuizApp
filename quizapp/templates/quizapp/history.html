@@ -1,0 +1,10 @@
+<h2>Your Quiz History</h2>
+<ul>
+  {% for r in results %}
+  <li>{{ r.date_taken }} - Score: {{ r.score }}/5 ({{ r.percentage }}%)</li>
+  {% endfor %}
+</ul>
+<p>Average Score: {{ avg }}/5</p>
+<p>Highest Score: {{ high }}/5</p>
+<p>Lowest Score: {{ low }}/5</p>
+<a href="{% url 'quiz' %}">Take Quiz Again</a>

@@ -1,0 +1,7 @@
+<h2>Your Score: {{ score }}/5</h2>
+<p>Percentage: {{ percentage }}%</p>
+<p>{{ message }}</p>
+{% if allow_retry %}
+<a href="{% url 'quiz' %}">Retake Quiz</a>
+{% endif %}
+<a href="{% url 'history' %}">View History</a>
