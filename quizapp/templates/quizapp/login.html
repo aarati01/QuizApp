@@ -1,6 +1,63 @@
 <h2>Login</h2>
 <form method="post">
-  {% csrf_token %} Username: <input type="text" name="username" /><br />
-  Password: <input type="password" name="password" /><br />
-  <button type="submit">Login</button>
+  {% csrf_token %} Username:
+  <input type="text" name="username" class="input-field" /><br />
+  Password: <input type="password" name="password" class="input-field" /><br />
+  <button type="submit" class="login-btn">Login</button>
 </form>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-top: 30px;
+  }
+
+  form {
+    background-color: white;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .input-field:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+
+  .login-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .login-btn:hover {
+    background-color: #2980b9;
+  }
+</style>

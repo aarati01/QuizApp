@@ -32,22 +32,38 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Question, QuizResult
+import random
+
 @login_required
 def quiz(request):
     if request.method == 'POST':
-        questions = Question.objects.filter(id__in=request.session['questions'])
-        score = 0
-        for i, question in enumerate(questions):
-            selected = int(request.POST.get(f'q{i}', 0))
-            if selected == question.correct_option:
-                score += 1
-        percentage = int((score / 5) * 100)
-        QuizResult.objects.create(user=request.user, score=score, percentage=percentage)
+        question_ids = request.session.get('questions', [])
+        questions_dict = {q.id: q for q in Question.objects.filter(id__in=question_ids)}
 
-        # Store in session to show in result
+        score = 0
+        for i, qid in enumerate(question_ids):  # maintain original order
+            selected = request.POST.get(f'q{i}')
+            question = questions_dict.get(qid)
+            if question and selected and int(selected) == question.correct_option:
+                score += 1
+
+        total_questions = len(question_ids)
+        percentage = int((score / total_questions) * 100) if total_questions > 0 else 0
+
+        QuizResult.objects.create(
+            user=request.user,
+            score=score,
+            percentage=percentage
+        )
+
         request.session['last_score'] = score
         request.session['last_percentage'] = percentage
+
         return redirect('result')
+
     else:
         questions = random.sample(list(Question.objects.all()), 5)
         request.session['questions'] = [q.id for q in questions]

@@ -7,4 +7,59 @@
 <p>Average Score: {{ avg }}/5</p>
 <p>Highest Score: {{ high }}/5</p>
 <p>Lowest Score: {{ low }}/5</p>
-<a href="{% url 'quiz' %}">Take Quiz Again</a>
+<a href="{% url 'quiz' %}" class="take-quiz-btn">Take Quiz Again</a>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-top: 30px;
+  }
+
+  ul {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  ul li {
+    font-size: 1.2em;
+    color: #34495e;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #34495e;
+    text-align: center;
+  }
+
+  .take-quiz-btn {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 12px 0;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .take-quiz-btn:hover {
+    background-color: #2980b9;
+  }
+</style>

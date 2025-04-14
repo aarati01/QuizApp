@@ -1,3 +1,35 @@
 <h1>Welcome to the Quiz App</h1>
-<a href="{% url 'login' %}">Login</a> |
-<a href="{% url 'register' %}">Register</a>
+<a href="{% url 'login' %}" class="nav-link">Login</a> |
+<a href="{% url 'register' %}" class="nav-link">Register</a>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #2c3e50;
+    margin-top: 50px;
+  }
+
+  .nav-link {
+    color: #3498db;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover {
+    color: #2980b9;
+  }
+
+  .nav-link:focus {
+    outline: none;
+  }
+</style>
